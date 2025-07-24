@@ -5,6 +5,7 @@ import connectDB from './config/db.js';
 import productRoutes from './routes/productRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
+import cors from 'cors';
 
 // ✅ প্রথমেই .env config করুন
 dotenv.config();
@@ -16,6 +17,12 @@ console.log("Mongo URI from .env:", process.env.MONGO_URI);
 connectDB();
 
 const app = express();
+
+// CORS middleware
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true,
+}));
 
 // ✅ Middleware
 app.use(express.json());
