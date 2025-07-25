@@ -20,7 +20,7 @@ const app = express();
 
 // CORS middleware
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: ['https://ecommerce-client-01.vercel.app'],
   credentials: true,
 }));
 
